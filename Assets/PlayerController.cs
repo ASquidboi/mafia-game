@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MovementInput.x = Input.GetKey(KeyCode.A);
+        MovementInput.x = Input.GetAxis("Horizontal");
         movementx = MovementInput.x;
         MovementInput.y = Input.GetAxis("Vertical");
         movementy = MovementInput.y;
