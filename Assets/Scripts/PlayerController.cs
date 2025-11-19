@@ -20,6 +20,13 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (DialogManager.GetInstance().dialogIsPlaying)
+        {
+            // Cancel momentum when interacting with NPC.
+            rb.velocity = Vector2.zero;
+            return;
+        }
+
         MovementInput.x = Input.GetAxis("Horizontal");
         movementx = MovementInput.x;
         MovementInput.y = Input.GetAxis("Vertical");
@@ -27,7 +34,9 @@ public class PlayerController : MonoBehaviour
         
 
         if (MovementInput.x == 0 && MovementInput.y == 0)
-        {
+        { 
+            // Prevent drifting in player movement.
+            // Very scuffed but whatever
             rb.velocity = Vector2.zero;
         }
 
