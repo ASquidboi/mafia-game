@@ -112,6 +112,7 @@ public class DialogManager : MonoBehaviour
         int index = 0;
         foreach (Choice choice in currentChoices)
         {
+            
             choices[index].gameObject.SetActive(true);
             choicesText[index].text = choice.text;
             index++;
